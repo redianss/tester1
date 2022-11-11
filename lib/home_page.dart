@@ -11,7 +11,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Sign In'),
+      body: Center(child: Text('Sign In')),
     );
   }
 }

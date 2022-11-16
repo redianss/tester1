@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               //hello again
               Text(
-                "Hello Again!",
+                "Hey Kamu!",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 10),
               Text(
-                "udah lama ga mampir, apa kabar?",
+                "udah lama banget ga mampir, apa kabar?",
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderSide: BorderSide(color: Colors.deepPurpleAccent),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    hintText: 'Email',
+                    hintText: 'Masukan Email Kamu',
                     fillColor: Colors.grey[200],
                     filled: true,
                   ),
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderSide: BorderSide(color: Colors.deepPurpleAccent),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    hintText: 'Password',
+                    hintText: 'Passwordnya jangan lupa',
                     fillColor: Colors.grey[200],
                     filled: true,
                   ),
@@ -120,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                       child: Text(
-                        'Forgot Password?',
+                        'Passwordnya Lupa?',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,
@@ -146,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child: Center(
                         child: Text(
-                      'Sign In',
+                      'DAFTAR',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -163,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'not a member?',
+                    'Belum punya akun?',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -171,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                   GestureDetector(
                     onTap: widget.showRegisterPage,
                     child: Text(
-                      'Register Now!',
+                      'Daftar Sekarang!',
                       style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,

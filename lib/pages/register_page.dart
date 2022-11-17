@@ -31,6 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future signUp() async {
+    // create user
     if (passwordConfirmed()) {
       FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),

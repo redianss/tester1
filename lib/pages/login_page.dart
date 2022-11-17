@@ -146,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child: Center(
                         child: Text(
-                      'DAFTAR',
+                      'MASUK',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

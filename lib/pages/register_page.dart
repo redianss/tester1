@@ -15,18 +15,17 @@ class _RegisterPageState extends State<RegisterPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
-  final _firstnameController = TextEditingController();
-  final _lastnameController = TextEditingController();
-  final _ageController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _profesiController = TextEditingController();
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     _confirmpasswordController.dispose();
-    _firstnameController.dispose();
-    _lastnameController.dispose();
-    _ageController.dispose();
+    _nameController.dispose();
+    //_lastnameController.dispose();
+    _profesiController.dispose();
     super.dispose();
   }
 
@@ -40,21 +39,20 @@ class _RegisterPageState extends State<RegisterPage> {
 
       // add user detai;
       addUserDetails(
-        _firstnameController.text.trim(),
-        _lastnameController.text.trim(),
+        _nameController.text.trim(),
+        //_lastnameController.text.trim(),
         _emailController.text.trim(),
-        int.parse(_ageController.text.trim()),
+        _profesiController.text.trim(),
       );
     }
   }
 
-  Future addUserDetails(
-      String firstName, String lastName, String email, int age) async {
+  Future addUserDetails(String nama, String email, String profesi) async {
     await FirebaseFirestore.instance.collection('users').add({
-      'first name': firstName,
-      'last name': lastName,
+      'nama': nama,
+      //'last name': lastName,
+      'profesi': profesi,
       'email': email,
-      'age': age,
     });
   }
 
@@ -78,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               //hello again
               Text(
-                "Hello There ",
+                "Hello Selamat Datang ",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
@@ -86,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               SizedBox(height: 10),
               Text(
-                "Regsteer below ",
+                "Masuka data - data anda",
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -96,7 +94,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
-                  controller: _firstnameController,
+                  controller: _nameController,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
@@ -106,34 +104,34 @@ class _RegisterPageState extends State<RegisterPage> {
                       borderSide: BorderSide(color: Colors.deepPurpleAccent),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    hintText: 'Nama Depan',
+                    hintText: 'Nama',
                     fillColor: Colors.grey[200],
                     filled: true,
                   ),
                 ),
               ),
 
-              SizedBox(height: 15),
-              // last name text field
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: TextField(
-                  controller: _lastnameController,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.deepPurpleAccent),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    hintText: 'Nama Belakang',
-                    fillColor: Colors.grey[200],
-                    filled: true,
-                  ),
-                ),
-              ),
+              // SizedBox(height: 15),
+              // // last name text field
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              //   child: TextField(
+              //     controller: _lastnameController,
+              //     decoration: InputDecoration(
+              //       enabledBorder: OutlineInputBorder(
+              //         borderSide: BorderSide(color: Colors.white),
+              //         borderRadius: BorderRadius.circular(12),
+              //       ),
+              //       focusedBorder: OutlineInputBorder(
+              //         borderSide: BorderSide(color: Colors.deepPurpleAccent),
+              //         borderRadius: BorderRadius.circular(12),
+              //       ),
+              //       hintText: 'Nama Belakang',
+              //       fillColor: Colors.grey[200],
+              //       filled: true,
+              //     ),
+              //   ),
+              // ),
 
               SizedBox(height: 15),
 
@@ -141,7 +139,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
-                  controller: _ageController,
+                  controller: _profesiController,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
@@ -151,7 +149,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       borderSide: BorderSide(color: Colors.deepPurpleAccent),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    hintText: 'Umur',
+                    hintText: 'Profesi',
                     fillColor: Colors.grey[200],
                     filled: true,
                   ),
@@ -220,7 +218,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       borderSide: BorderSide(color: Colors.deepPurpleAccent),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    hintText: 'Confirm your password',
+                    hintText: 'Masukan Kembali Password',
                     fillColor: Colors.grey[200],
                     filled: true,
                   ),
@@ -258,7 +256,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'not a member?',
+                    'Sudah jadi member?',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -266,7 +264,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   GestureDetector(
                     onTap: widget.showLoginPage,
                     child: Text(
-                      'Register Now!',
+                      'Login disini',
                       style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,
